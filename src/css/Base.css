@@ -78,6 +78,7 @@ body {
     transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
     margin-right: -4px;
     flex-shrink: 0;
+    app-region: none;
 }
 
 .ce-tab:active {
@@ -147,8 +148,8 @@ body {
     color: var(--ce-text-muted);
     background: transparent;
     border: none;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -177,6 +178,7 @@ body {
     margin-left: 4px;
     align-self: center;
     flex-shrink: 0;
+    app-region: none;
 }
 
 .ce-new-tab-btn:hover {
