@@ -12,6 +12,15 @@
   ],
   "background_color": "#000000",
   "theme_color": "#0D0D0D",
+  "isolated_storage": true,
+  "permissions_policy": {
+    "cross-origin-isolated": [
+      "self"
+    ],
+    "controlled-frame": [
+      "self"
+    ]
+  },
   "icons": [
     {
       "src": "/icons/icon-192x192.png",
