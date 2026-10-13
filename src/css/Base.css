@@ -1,0 +1,256 @@
+:root {
+--ce-bg-main: #0d1310;
+--ce-bg-header: #121915;
+--ce-bg-toolbar: #1a2420;
+--ce-border: #22302a;
+--ce-tab-bg: #121915;
+--ce-tab-hover: #1c2722;
+--ce-tab-active: #1a2420;
+--ce-text-main: #e2e8f0;
+--ce-text-muted: #94a3b8;
+--ce-accent: #34d399;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.ce-browser {
+display: flex;
+flex-direction: column;
+height: 100vh;
+background-color: var(--ce-bg-main);
+color: var(--ce-text-main);
+font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+user-select: none;
+overflow: hidden;
+}
+
+.ce-header {
+background-color: var(--ce-bg-header);
+border-bottom: 1px solid var(--ce-border);
+display: flex;
+flex-direction: column;
+}
+
+.ce-tab-strip-container {
+display: flex;
+align-items: center;
+padding: 8px 8px 0 8px;
+gap: 4px;
+}
+
+.ce-tabs-container {
+display: flex;
+align-items: center;
+gap: 4px;
+overflow-x: auto;
+flex: 1;
+scrollbar-width: thin;
+scrollbar-color: #2a3832 transparent;
+}
+
+.ce-tabs-container::-webkit-scrollbar {
+height: 4px;
+}
+
+.ce-tabs-container::-webkit-scrollbar-thumb {
+background: #2a3832;
+border-radius: 4px;
+}
+
+.ce-tab {
+position: relative;
+height: 36px;
+max-width: 240px;
+min-width: 120px;
+display: flex;
+align-items: center;
+padding: 0 12px;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+background-color: var(--ce-tab-bg);
+color: var(--ce-text-muted);
+font-size: 13px;
+cursor: grab;
+transition: background-color 0.15s ease, color 0.15s ease, opacity 0.15s ease;
+margin-right: -4px;
+flex-shrink: 0;
+}
+
+.ce-tab:active {
+cursor: grabbing;
+}
+
+.ce-tab.dragging {
+opacity: 0.4;
+cursor: grabbing;
+}
+
+.ce-tab.drag-over {
+border-left: 2px solid var(--ce-accent);
+}
+
+.ce-tab:hover {
+background-color: var(--ce-tab-hover);
+color: #cbd5e1;
+}
+
+.ce-tab.active {
+background-color: var(--ce-tab-active);
+color: #f1f5f9;
+z-index: 10;
+cursor: default;
+}
+
+.ce-tab.active::before,
+.ce-tab.active::after {
+content: '';
+position: absolute;
+bottom: 0;
+width: 10px;
+height: 10px;
+pointer-events: none;
+}
+
+.ce-tab.active::before {
+left: -10px;
+border-bottom-right-radius: 10px;
+}
+
+.ce-tab.active::after {
+right: -10px;
+border-bottom-left-radius: 10px;
+}
+
+.ce-tab-content {
+display: flex;
+align-items: center;
+gap: 8px;
+flex: 1;
+overflow: hidden;
+pointer-events: none;
+}
+
+.ce-tab-title {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-size: 13px;
+font-weight: 500;
+}
+
+.ce-tab-close {
+margin-left: 8px;
+color: var(--ce-text-muted);
+background: transparent;
+border: none;
+width: 20px;
+height: 20px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: background 0.15s, color 0.15s;
+}
+
+.ce-tab-close:hover {
+background-color: #25332d;
+color: #f1f5f9;
+}
+
+.ce-new-tab-btn {
+width: 28px;
+height: 28px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background: transparent;
+border: none;
+color: var(--ce-text-muted);
+cursor: pointer;
+transition: background-color 0.15s, color 0.15s;
+margin-left: 4px;
+align-self: center;
+flex-shrink: 0;
+}
+
+.ce-new-tab-btn:hover {
+background-color: var(--ce-tab-hover);
+color: #f1f5f9;
+}
+
+.ce-toolbar {
+background-color: var(--ce-bg-toolbar);
+padding: 8px 12px;
+display: flex;
+align-items: center;
+gap: 12px;
+border-top: 1px solid #23312b;
+}
+
+.ce-nav-btns {
+display: flex;
+align-items: center;
+gap: 4px;
+color: var(--ce-text-main);
+}
+
+.ce-nav-btn {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+background: transparent;
+border: none;
+color: inherit;
+cursor: pointer;
+transition: background-color 0.15s;
+}
+
+.ce-nav-btn:hover {
+background-color: #25332d;
+}
+
+.ce-nav-btn:disabled {
+opacity: 0.3;
+cursor: default;
+}
+
+.ce-url-bar {
+flex: 1;
+display: flex;
+align-items: center;
+background-color: #111815;
+border: 1px solid #2a3a33;
+border-radius: 9999px;
+padding: 6px 14px;
+transition: border-color 0.15s;
+}
+
+.ce-url-bar:focus-within {
+border-color: var(--ce-accent);
+}
+
+.ce-url-input {
+background: transparent;
+flex: 1;
+font-size: 14px;
+color: #f1f5f9;
+border: none;
+outline: none;
+font-family: 'JetBrains Mono', monospace;
+}
+
+.ce-viewport {
+flex: 1;
+display: flex;
+flex-direction: column;
+background-color: #141c18;
+overflow-y: auto;
+}

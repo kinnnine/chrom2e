@@ -1,0 +1,26 @@
+{
+  "name": "chrom2e",
+  "version": "0.1.0",
+  "description": "Isolated 2nd-browser made for ChromeOS",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:unsigned": "vite build && node bundler.ts",
+    "build:signed": "vite build && node bundler.ts signed",
+    "build": "pnpm run build:unsigned && pnpm run build:signed",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "kinnnine",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/mithril": "^2.2.9",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.1",
+    "wbn": "^0.0.9",
+    "wbn-sign": "^0.3.1"
+  },
+  "dependencies": {
+    "mithril": "^2.3.8"
+  }
+}
