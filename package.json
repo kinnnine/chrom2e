@@ -5,9 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build:unsigned": "vite build && node bundler.ts",
-    "build:signed": "vite build && node bundler.ts signed",
-    "build": "pnpm run build:unsigned && pnpm run build:signed",
+    "build": "rm -rf ./dist && mkdir ./dist && vite build && wbn --dir build --output ./build/unsigned.wbn && wbn-sign sign ./build/unsigned.wbn private_key.pem -o ./dist/chrom2e.swbn && rm ./build/unsigned.wbn",
     "preview": "vite preview"
   },
   "keywords": [],
@@ -15,6 +13,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/mithril": "^2.2.9",
+    "@types/node": "^26.6.5",
     "typescript": "^7.0.2",
     "vite": "^8.3.1",
     "wbn": "^0.0.9",
