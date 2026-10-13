@@ -1,33 +1,46 @@
 import m from 'mithril'
+import { Webview } from './Webview';
 
 export const Tabs = {
-    openTabs: [
-        { uuid: self.crypto.randomUUID(), title: "Blank Page", url: "https://example.com" }
+    availableTabs: [
+        { uuid: self.crypto.randomUUID(), title: "Blank Page", url: "about:blank" }
     ],
     activatedTab: "",
-    draggedTabId: "",
+    draggedTab: "",
+    getLastTab: function () {
+        return Tabs.availableTabs[Tabs.availableTabs.length - 1];
+    },
     activateTab: function (tabUUID: string) {
+        if (!tabUUID) return;
         Tabs.activatedTab = tabUUID;
         m.redraw();
     },
-    newTab: function (url: string) {
-        Tabs.openTabs.push({
+    activateLastTab: function () {
+        setTimeout(() => {
+            Tabs.activateTab(Tabs.getLastTab()?.uuid || '');
+        }, 50);
+        m.redraw();
+    },
+    newTab: function (url: string = "about:blank") {
+        Tabs.availableTabs.push({
             uuid: self.crypto.randomUUID(),
-            title: "",
+            title: "Blank Page",
             url: url
         });
+        Tabs.activateLastTab();
         m.redraw();
     },
     closeTab: function (tabUUID: string) {
-        Tabs.openTabs.filter(function(value, index, arr){
+        Tabs.availableTabs.filter(function (value, index, arr) {
             if (value.uuid == tabUUID) {
                 arr.splice(index, 1);
             }
         });
+        Tabs.activateLastTab();
         m.redraw();
     },
     setTabTitle: function (tabUUID: string, title: string) {
-        Tabs.openTabs.filter(function(value){
+        Tabs.availableTabs.filter(function (value) {
             if (value.uuid == tabUUID) {
                 value.title = title;
             }
@@ -35,11 +48,12 @@ export const Tabs = {
         m.redraw();
     },
     setTabUrl: function (tabUUID: string, url: string) {
-        Tabs.openTabs.filter(function(value){
+        Tabs.availableTabs.filter(function (value) {
             if (value.uuid == tabUUID) {
-                // ..
+                value.url = url;
             }
         });
+        Webview.setUrl(tabUUID, url);
         m.redraw();
-    },
+    }
 }
