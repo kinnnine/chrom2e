@@ -13,11 +13,7 @@ export const App = () => {
                     m("div", { class: "ce-tab-strip-container" }, [
                         m("button", { class: "ce-nav-btn", title: "Menu" }, [
                             m("svg", { "xmlns": "http://www.w3.org/2000/svg", "width": "24", "height": "24", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" },
-                                [
-                                    m("path", { "d": "M4 5h16" }),
-                                    m("path", { "d": "M4 12h16" }),
-                                    m("path", { "d": "M4 19h16" })
-                                ]
+                                m("path", { "d": "m6 9 6 6 6-6" })
                             )
                         ]),
                         m("div", { class: "ce-tabs-container" },
@@ -105,6 +101,22 @@ export const App = () => {
                                 }
                             }
                         })
+                    ]),
+                    m("div", { class: "ce-nav-btns" }, [
+                        m("button", {
+                            class: "ce-nav-btn",
+                            // onclick: function () {
+                            //     Webview.reload();
+                            // }
+                        }, [
+                            m("svg", { "xmlns": "http://www.w3.org/2000/svg", "width": "24", "height": "24", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" },
+                                [
+                                    m("circle", { "cx": "12", "cy": "12", "r": "1" }),
+                                    m("circle", { "cx": "12", "cy": "5", "r": "1" }),
+                                    m("circle", { "cx": "12", "cy": "19", "r": "1" })
+                                ]
+                            )
+                        ]),
                     ])
                 ]),
                 m("main", { class: "ce-viewport" }, [

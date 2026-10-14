@@ -62,7 +62,6 @@ export const Tabs = {
                 const urlbar = document.getElementById("urlbar") as HTMLInputElement;
                 urlbar.value = url;
                 value.url = url;
-                console.log(url);
             }
         });
         m.redraw();
