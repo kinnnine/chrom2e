@@ -8,11 +8,24 @@ Minimal and isolated secondary web browser for ChromeOS 140+, made use of [Contr
 
 Meanwhile Chrom2e is not meant to be a replacement for the main "Google Chrome" web browser in ChromeOS, it's still useful for some cases.
 
-- One wants to use Google products with a different account and a main account at the same time.
-- One wants to have a disposable web browser without touching into their main web browser.
-- One wants to have a clean and lean user interface for the web browser.
+- One wants to use Google products with a different account and a main account at the same time
+- One wants to have a disposable web browser without touching into their main web browser
+- One wants to have a clean and lean user interface for the web browser
 
 ## Downsides
 
-- Chrom2e cannot use any Chrome extension due to how [IWA](https://developer.chrome.com/docs/iwa/introduction) and [Controlled Frame API](https://wicg.github.io/controlled-frame/) was designed.
-- Managed ChromeOS device will require a permission from the admin in order to install this app, unless you're on personal device (unmanaged) then can be easily installed. 
+- Chrom2e cannot use any Chrome extension due to how [IWA](https://developer.chrome.com/docs/iwa/introduction) and [Controlled Frame API](https://wicg.github.io/controlled-frame/) was designed
+- Managed ChromeOS device will require a permission from the admin in order to install this app, unless you're on personal device (unmanaged) then can be easily installed 
+
+## Security
+
+- Chrom2e is running under `isolated-app://`, an URL scheme for IWAs [(??)](https://github.com/WICG/isolated-web-apps/blob/main/Scheme.md)
+- Only `https://`, `http://` and `data:` URL schemes are allowed [(??)](https://github.com/WICG/controlled-frame/tree/main#design-proposal)
+- Every opened tabs are separated from the main app under process named `Webview` [(??)](https://github.com/WICG/controlled-frame/tree/main#design-proposal)
+- Manageable browser permissions under system settings or by the admin console, including sounds, popups etc.. [(??)](https://github.com/WICG/controlled-frame/tree/main#background-on-permissions-policy-permissions-and-permissions-registry)
+
+## Planned features
+
+- Internal pages via fake URL scheme implementation
+- NoScript-like functionally
+- Basic AdBlock
