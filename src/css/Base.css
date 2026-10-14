@@ -256,7 +256,6 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #141c18;
-    overflow-y: auto;
 }
 
 .ce-iframe {
