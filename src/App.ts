@@ -111,6 +111,43 @@ export const App = () => {
                         }, [
                             m("svg", { "xmlns": "http://www.w3.org/2000/svg", "width": "24", "height": "24", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" },
                                 [
+                                    m("path", { "d": "M11 22c-3.806-1.45-7-3.966-7-9V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1v4" }),
+                                    m("path", { "d": "M14.923 16.547 14 16.164" }),
+                                    m("path", { "d": "m14.923 18.843-.923.383" }),
+                                    m("path", { "d": "M16.547 14.923 16.164 14" }),
+                                    m("path", { "d": "m16.547 20.467-.383.924" }),
+                                    m("path", { "d": "m18.843 14.923.383-.923" }),
+                                    m("path", { "d": "m19.225 21.391-.382-.924" }),
+                                    m("path", { "d": "m20.467 16.547.923-.383" }),
+                                    m("path", { "d": "m20.467 18.843.923.383" }),
+                                    m("circle", { "cx": "17.695", "cy": "17.695", "r": "3" })
+                                ]
+                            )
+                        ]),
+                        m("button", {
+                            class: "ce-nav-btn",
+                            // onclick: function () {
+                            //     Webview.reload();
+                            // }
+                        }, [
+                            m("svg", { "xmlns": "http://www.w3.org/2000/svg", "width": "24", "height": "24", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" },
+                                [
+                                    m("path", { "d": "M14 18a2 2 0 0 0-4 0" }),
+                                    m("path", { "d": "m19 11-2.11-6.657a2 2 0 0 0-2.752-1.148l-1.276.61A2 2 0 0 1 12 4H8.5a2 2 0 0 0-1.925 1.456L5 11" }),
+                                    m("path", { "d": "M2 11h20" }),
+                                    m("circle", { "cx": "17", "cy": "18", "r": "3" }),
+                                    m("circle", { "cx": "7", "cy": "18", "r": "3" })
+                                ]
+                            )
+                        ]),
+                        m("button", {
+                            class: "ce-nav-btn",
+                            // onclick: function () {
+                            //     Webview.reload();
+                            // }
+                        }, [
+                            m("svg", { "xmlns": "http://www.w3.org/2000/svg", "width": "24", "height": "24", "viewBox": "0 0 24 24", "fill": "none", "stroke": "currentColor", "stroke-width": "2", "stroke-linecap": "round", "stroke-linejoin": "round" },
+                                [
                                     m("circle", { "cx": "12", "cy": "12", "r": "1" }),
                                     m("circle", { "cx": "12", "cy": "5", "r": "1" }),
                                     m("circle", { "cx": "12", "cy": "19", "r": "1" })
