@@ -96,11 +96,12 @@ export const App = () => {
                     m("div", { class: "ce-url-bar" }, [
                         m("input", {
                             type: "text",
+                            id: "urlbar",
                             class: "ce-url-input",
                             placeholder: "Search or enter web address",
                             onkeydown: function (e: any) {
                                 if (e.key === "Enter") {
-                                    Tabs.setTabUrl(Tabs.activatedTab, e.target.value);
+                                    Webview.setUrl(Tabs.activatedTab, e.target.value);
                                 }
                             }
                         })
@@ -110,7 +111,6 @@ export const App = () => {
                     Tabs.availableTabs.map(function (tab) {
                         return m("controlledframe", {
                             class: "ce-iframe",
-                            src: tab.url,
                             id: tab.uuid,
                             style: {
                                 display: `${Tabs.activatedTab === tab.uuid ? '' : 'none'}`,
